@@ -1,0 +1,11 @@
+body{
+    margin: 2rem;
+}
+
+.btn-edit{
+    margin: 1rem;
+}
+
+.phrase{
+    font-style: italic;
+}
