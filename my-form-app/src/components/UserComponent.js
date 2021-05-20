@@ -4,10 +4,9 @@ import './UserComponent.css';
 
 class UserComponent extends React.Component {
     state = {
-        name: 'Daniel',
-        lastName: 'Felipe',
-        email: 'danielaucarpro@gmail.com',
-        catchPhrase: 'Hello! Stay a while and listen!',
+        user: [this.props.user],
+        id: this.props.user.id,
+        name: this.props.user.name,
         isEditOn: false
     }
 
@@ -31,11 +30,18 @@ class UserComponent extends React.Component {
 
     render() {
         return (
+            //create map with user jsut like raphael
             <>
                 <div>
-                    <h4>{this.state.name} {this.state.lastName}</h4>
-                    <p>{this.state.email}</p>
-                    <p className='phrase'>"{this.state.catchPhrase}"</p>
+                    {this.state.user.map((user) => {
+                        <div key= {this.state.id}>
+                            <p>Name: {this.state.name} {user.lastName}</p>
+                            <p>Email: {user.email}</p>
+                            <p>Phrase: {user.catchPhrase}</p>
+                        </div>
+                    })}
+                </div>
+                <div>
                     <button onClick={this.onDelete} className='btn-del'>Delete User</button>
                     <button onClick={this.editUser} className='btn-edit'>Edit User</button>
                 </div>
